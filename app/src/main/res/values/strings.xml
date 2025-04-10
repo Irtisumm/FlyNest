@@ -13,8 +13,8 @@
     <string name="no_flights_available">No flights available illustration</string>
     <string name="no_flights_found">No flights found</string>
     <string name="try_different_search">Try different search criteria</string>
-
     <!-- Common -->
+    <string name="more_options">More Options</string>
     <string name="currency_format">RM%1$d</string>
     <string name="flight_duration_format">%1$sh %2$sm</string>
     <string name="non_stop">Non-stop</string>

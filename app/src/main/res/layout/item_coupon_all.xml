@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardBackgroundColor="#C8E6C9"
+    app:cardBackgroundColor="#E0F7FA"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp">
 
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:text="CODE123"
             android:textSize="16sp"
-            android:textColor="#388E3C"
+            android:textColor="#0288D1"
             app:layout_constraintBottom_toBottomOf="@id/coupon_image"
             app:layout_constraintStart_toStartOf="@id/coupon_description" />
 
@@ -57,10 +57,9 @@
             android:id="@+id/redeem_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Claimed"
+            android:text="Redeem"
             android:textColor="@android:color/white"
-            android:enabled="false"
-            app:backgroundTint="#388E3C"
+            app:backgroundTint="#0288D1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
