@@ -37,10 +37,6 @@
 
             <!-- Flight Info Card -->
             <com.google.android.material.card.MaterialCardView
-<<<<<<< HEAD
-                android:id="@+id/flightCard"
-=======
->>>>>>> upstream/main
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/white"
@@ -107,13 +103,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-<<<<<<< HEAD
-            <!-- RecyclerView for Passenger Forms -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/passengerFormsRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-=======
             <!-- Passenger Title -->
             <TextView
                 android:id="@+id/passengerTitle"
@@ -200,7 +189,6 @@
                     android:inputType="textCapCharacters"
                     android:textColor="@color/text_primary" />
             </com.google.android.material.textfield.TextInputLayout>
->>>>>>> upstream/main
 
             <!-- Submit Button -->
             <com.google.android.material.button.MaterialButton
@@ -215,8 +203,4 @@
                 app:elevation="0dp" />
         </LinearLayout>
     </ScrollView>
-<<<<<<< HEAD
 </RelativeLayout>
-=======
-</RelativeLayout>
->>>>>>> upstream/main
