@@ -5,7 +5,11 @@
     android:id="@+id/navigation"
     app:startDestination="@id/homeFragment">
 
+<<<<<<< HEAD
+    <!-- Your other fragments remain the same -->
+=======
     <!-- Existing Fragments -->
+>>>>>>> upstream/main
     <fragment
         android:id="@+id/bookingFragment2"
         android:name="com.group.FlyNest.Fragment.BookingFragment"
@@ -19,6 +23,9 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.group.FlyNest.Fragment.ProfileFragment"
+<<<<<<< HEAD
+        android:label="Profile" />
+=======
         android:label="Profile">
         <action
             android:id="@+id/action_profileFragment_to_accountSettingsFragment"
@@ -34,20 +41,32 @@
             app:destination="@id/helpSupportFragment" />
     </fragment>
 
+>>>>>>> upstream/main
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.group.FlyNest.Fragment.HomeFragment"
         android:label="Home">
+<<<<<<< HEAD
+
+=======
+>>>>>>> upstream/main
         <action
             android:id="@+id/action_home_to_flight_results"
             app:destination="@id/flightResultsFragment" />
     </fragment>
+<<<<<<< HEAD
+=======
 
+>>>>>>> upstream/main
     <fragment
         android:id="@+id/flightResultsFragment"
         android:name="com.group.FlyNest.fragment.FlightResultsFragment"
         android:label="Flight Results"
         tools:layout="@layout/fragment_flight_results">
+<<<<<<< HEAD
+
+=======
+>>>>>>> upstream/main
         <argument
             android:name="origin"
             app:argType="string" />
@@ -64,6 +83,8 @@
             android:name="seatClass"
             app:argType="string" />
     </fragment>
+<<<<<<< HEAD
+=======
 
     <!-- New Settings Fragments -->
     <fragment
@@ -112,4 +133,5 @@
         android:id="@+id/contactUsFragment"
         android:name="com.group.FlyNest.Fragment.ContactUsFragment"
         android:label="Contact Us" />
+>>>>>>> upstream/main
 </navigation>

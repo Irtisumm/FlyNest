@@ -20,6 +20,10 @@
     <string name="non_stop">Non-stop</string>
     <string name="one_stop">1 stop</string>
     <string name="multiple_stops">%1$d stops</string>
+<<<<<<< HEAD
+
+</resources>
+=======
     <string name="premium_member">@Premium Member</string>
     <string name="login_title">Login</string>
     <string name="login_subtitle">Welcome back to the app</string>
@@ -60,3 +64,4 @@
 
 
 </resources>
+>>>>>>> upstream/main

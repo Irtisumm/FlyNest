@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> upstream/main
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
+<<<<<<< HEAD
+
+=======
+>>>>>>> upstream/main
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your name"
+<<<<<<< HEAD
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_marginTop="16dp" />
+=======
         android:textColor="@color/primary_text"
         android:textColorHint="@color/hint_text"/>
+>>>>>>> upstream/main
 </LinearLayout>

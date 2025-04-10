@@ -3,8 +3,20 @@ package com.group.FlyNest.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
+<<<<<<< HEAD
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.group.FlyNest.databinding.ActivityPassengerInfoBinding
+import com.group.FlyNest.databinding.ItemPassengerFormBinding
+=======
 import androidx.appcompat.app.AppCompatActivity
 import com.group.FlyNest.databinding.ActivityPassengerInfoBinding
+>>>>>>> upstream/main
 import com.group.FlyNest.model.Flight
 import com.group.FlyNest.model.Passenger
 import java.text.SimpleDateFormat
@@ -16,14 +28,29 @@ class PassengerInfoActivity : AppCompatActivity() {
     private lateinit var flight: Flight
     private var passengersCount: Int = 1
     private var seatClass: String = "Economy"
+<<<<<<< HEAD
+    private val passengersList = ArrayList<Passenger>()
+    private lateinit var passengerAdapter: PassengerFormAdapter
+    private lateinit var auth: FirebaseAuth
+=======
     private var currentPassengerIndex = 1
     private val passengerList = mutableListOf<Passenger>()
+>>>>>>> upstream/main
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPassengerInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+<<<<<<< HEAD
+        auth = FirebaseAuth.getInstance()
+        if (auth.currentUser == null) {
+            finish()
+            return
+        }
+
+=======
+>>>>>>> upstream/main
         flight = intent.getParcelableExtra(EXTRA_FLIGHT) ?: run {
             finish()
             return
@@ -33,7 +60,11 @@ class PassengerInfoActivity : AppCompatActivity() {
 
         setupToolbar()
         displayFlightInfo()
+<<<<<<< HEAD
+        setupPassengerForms()
+=======
         setupPassengerForm()
+>>>>>>> upstream/main
         setupListeners()
     }
 
@@ -41,10 +72,15 @@ class PassengerInfoActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
+<<<<<<< HEAD
+            title = "Passenger Details (${passengersCount}x $seatClass)"
+        }
+=======
             setDisplayShowHomeEnabled(true)
             title = "Passenger Details (${passengersCount}x $seatClass)"
         }
 
+>>>>>>> upstream/main
         binding.toolbar.setNavigationOnClickListener { onBackPressed() }
     }
 
@@ -69,12 +105,25 @@ class PassengerInfoActivity : AppCompatActivity() {
         }
     }
 
+<<<<<<< HEAD
+    private fun setupPassengerForms() {
+        binding.passengerFormsRecyclerView.layoutManager = LinearLayoutManager(this)
+        passengerAdapter = PassengerFormAdapter(passengersCount)
+        binding.passengerFormsRecyclerView.adapter = passengerAdapter
+=======
     private fun setupPassengerForm() {
         binding.passengerTitle.text = "Passenger ($currentPassengerIndex of $passengersCount)"
+>>>>>>> upstream/main
     }
 
     private fun setupListeners() {
         binding.submitButton.setOnClickListener {
+<<<<<<< HEAD
+            if (validateForms()) {
+                passengersList.clear()
+                passengersList.addAll(passengerAdapter.getPassengers())
+                navigateToPayment()
+=======
             if (validateForm()) {
                 val passenger = createPassengerFromInput()
                 passengerList.add(passenger)
@@ -86,10 +135,106 @@ class PassengerInfoActivity : AppCompatActivity() {
                 } else {
                     navigateToPayment(passengerList)
                 }
+>>>>>>> upstream/main
             }
         }
     }
 
+<<<<<<< HEAD
+    private fun navigateToPayment() {
+        Intent(this, PaymentActivity::class.java).apply {
+            putExtra(EXTRA_FLIGHT, flight)
+            putParcelableArrayListExtra("passengers", passengersList)
+            putExtra("passengersCount", passengersCount)
+            putExtra("seatClass", seatClass)
+            putExtra("totalPrice", flight.price * passengersCount)
+            startActivity(this)
+        }
+    }
+
+    private fun validateForms(): Boolean {
+        return passengerAdapter.validateAllForms()
+    }
+
+    inner class PassengerFormAdapter(private val passengerCount: Int) :
+        RecyclerView.Adapter<PassengerFormAdapter.PassengerViewHolder>() {
+
+        private val passengerViews = mutableListOf<ItemPassengerFormBinding>()
+
+        inner class PassengerViewHolder(val binding: ItemPassengerFormBinding) :
+            RecyclerView.ViewHolder(binding.root)
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PassengerViewHolder {
+            val binding = ItemPassengerFormBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            passengerViews.add(binding)
+            return PassengerViewHolder(binding)
+        }
+
+        override fun onBindViewHolder(holder: PassengerViewHolder, position: Int) {
+            holder.binding.passengerTitle.text = "Passenger ${position + 1} of $passengerCount"
+            if (position == 0) {
+                holder.binding.passengerTitle.text = "Primary Passenger (1 of $passengerCount)"
+            }
+            // flightCard and submitButton are now in the activity layout, not here
+        }
+
+        override fun getItemCount(): Int = passengerCount
+
+        fun getPassengers(): List<Passenger> {
+            return passengerViews.mapIndexed { index, binding ->
+                Passenger(
+                    name = binding.nameInput.text.toString().trim(),
+                    email = binding.emailInput.text.toString().trim(),
+                    phone = binding.phoneInput.text.toString().trim(),
+                    passport = binding.passportInput.text.toString().trim(),
+                    isPrimary = index == 0
+                )
+            }
+        }
+
+        fun validateAllForms(): Boolean {
+            var isValid = true
+            passengerViews.forEach { binding ->
+                if (binding.nameInput.text.isNullOrBlank()) {
+                    binding.nameContainer.error = "Full name is required"
+                    isValid = false
+                } else {
+                    binding.nameContainer.error = null
+                }
+
+                if (binding.emailInput.text.isNullOrBlank()) {
+                    binding.emailContainer.error = "Email is required"
+                    isValid = false
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(binding.emailInput.text.toString()).matches()) {
+                    binding.emailContainer.error = "Please enter a valid email"
+                    isValid = false
+                } else {
+                    binding.emailContainer.error = null
+                }
+
+                if (binding.phoneInput.text.isNullOrBlank()) {
+                    binding.phoneContainer.error = "Phone number is required"
+                    isValid = false
+                } else if (binding.phoneInput.text.toString().length < 10) {
+                    binding.phoneContainer.error = "Enter a valid phone number (min 10 digits)"
+                    isValid = false
+                } else {
+                    binding.phoneContainer.error = null
+                }
+
+                if (binding.passportInput.text.isNullOrBlank()) {
+                    binding.passportContainer.error = "Passport number is required"
+                    isValid = false
+                } else if (binding.passportInput.text.toString().length < 8) {
+                    binding.passportContainer.error = "Passport number too short"
+                    isValid = false
+                } else {
+                    binding.passportContainer.error = null
+                }
+            }
+            return isValid
+        }
+=======
     private fun createPassengerFromInput(): Passenger {
         return Passenger(
             name = binding.nameInput.text.toString().trim(),
@@ -165,10 +310,16 @@ class PassengerInfoActivity : AppCompatActivity() {
         }
 
         return isValid
+>>>>>>> upstream/main
     }
 
     companion object {
         const val EXTRA_FLIGHT = "flight"
+<<<<<<< HEAD
+    }
+}
+=======
         const val EXTRA_PASSENGER_LIST = "passenger_list"
     }
 }
+>>>>>>> upstream/main

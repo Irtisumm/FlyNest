@@ -48,6 +48,8 @@
     <color name="secondaryText">#757575</color>
     <color name="background">#FAFAFA</color>
 
+<<<<<<< HEAD
+=======
 
 
     <color name="purple_500">#6750A4</color>
@@ -58,6 +60,7 @@
 
     <!-- System colors -->
 
+>>>>>>> upstream/main
     <!-- New colors for chips -->
     <color name="chip_selected_background">#EC441E</color>
     <color name="chip_unselected_background">#FFFFFF</color>
@@ -66,9 +69,12 @@
     <color name="chip_text_unselected">#EC441E</color>
     <color name="gray_dark">#212121</color>
     <color name="colorOrange">#EC441E</color>
+<<<<<<< HEAD
+=======
     <color name="m3_sys_color_dynamic_light_primary">#6750A4</color>
     <color name="m3_sys_color_dynamic_light_primary_container">#EADDFF</color>
     <!-- Add other Material 3 color definitions -->
+>>>>>>> upstream/main
     <color name="colorAccent">#03DAC5</color>
     <color name="background_color">#F5F5F5</color>
     <!-- Keep this in res/values/colors.xml -->
@@ -108,6 +114,8 @@
     <color name="orange_dark">#E64A19</color>
     <color name="orange_light">#FFCCBC</color>
     <color name="gray_mid">#9E9E9E</color>
+<<<<<<< HEAD
+=======
 
         <!-- Primary Color (your reddish-orange) -->
         <!-- Darker variant of Primary for subtle contrast -->
@@ -132,4 +140,5 @@
     <color name="colorSecondaryText">#EC441E</color>
 
 
+>>>>>>> upstream/main
 </resources>

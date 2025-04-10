@@ -1,6 +1,13 @@
 package com.group.FlyNest
 
+<<<<<<< HEAD
+import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
+=======
+import android.os.Bundle
+>>>>>>> upstream/main
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -13,6 +20,22 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+<<<<<<< HEAD
+
+        // Allow drawing behind the status bar
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        }
+
+        // Set status bar appearance for API 21-22
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            window.statusBarColor = resources.getColor(R.color.white, theme)
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        }
+
+=======
+>>>>>>> upstream/main
         setContentView(R.layout.activity_main)
 
         // Get the NavController
